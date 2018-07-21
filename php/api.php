@@ -125,6 +125,43 @@
  break; 
  case 'demo':
  $response['message'] = 'Login successfull';
+ break;
+
+ case 'uploadFood':
+ $id = $_POST['id'];
+ $quantity = $_POST['quantity'];
+ $packaging = $_POST['packaging'];
+ $location = $_POST['location'];
+ $picture = $_POST['picture']; 
+ $pickup_time = $_POST['pickup_time'];
+ 
+ $stmt = $conn->prepare("INSERT INTO food (food_id,quantity,packaging,location,picture,pickup_time) VALUES (? ,?, ?, ?, ?, ?)");
+ $stmt->bind_param("ssssss", $id,$quantity,$packaging,$location,$picture,$pickup_time);
+  $stmt->execute();
+ 
+ $stmt->store_result();
+
+ 
+ // $stmt->bind_result($v_email);
+ // $stmt->fetch();
+ 
+ //  $user = array(
+ 
+ // 'email'=>$email,
+ // );
+ $stmt->close();
+ $response['error'] = false; 
+ $response['message'] = 'Successfully Added'; 
+ // $response['user'] = $user; 
+ 
+ 
+
+
+
+
+ // $st->close();
+ // $response['error'] = false; 
+ // $response['message'] = 'Successfully added';
  break; 
  
  default: 
