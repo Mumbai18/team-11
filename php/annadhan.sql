@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 21, 2018 at 01:34 PM
+-- Generation Time: Jul 21, 2018 at 02:18 PM
 -- Server version: 10.1.22-MariaDB
 -- PHP Version: 7.1.4
 
@@ -32,10 +32,10 @@ CREATE TABLE `donor` (
   `d_id` int(11) NOT NULL,
   `d_firstname` varchar(60) NOT NULL,
   `d_secondname` varchar(50) NOT NULL,
-  `email_id` varchar(20) NOT NULL,
+  `d_email` varchar(20) NOT NULL,
   `d_contact` int(20) NOT NULL,
   `d_address` varchar(60) NOT NULL,
-  `password` varchar(30) NOT NULL
+  `d_password` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -77,10 +77,10 @@ CREATE TABLE `volunteer` (
   `v_id` int(11) NOT NULL,
   `v_firstname` varchar(60) NOT NULL,
   `v_secondname` varchar(30) NOT NULL,
-  `email_id` varchar(30) NOT NULL,
+  `v_email` varchar(30) NOT NULL,
   `v_contact` int(20) NOT NULL,
   `v_address` varchar(60) NOT NULL,
-  `password` varchar(30) NOT NULL
+  `v_password` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
