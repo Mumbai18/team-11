@@ -1,5 +1,6 @@
 package com.example.pavan.annadhaan;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -149,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected Map<String, String> getParams()throws AuthFailureError {
             Map<String, String> params = new HashMap<String, String>();
-            params.put("d_id","2");
+            params.put("d_id","5");
             params.put("d_firstname",FN);
             params.put("d_secondname",LN);
             params.put("d_email",Mail);
@@ -163,6 +164,10 @@ public class MainActivity extends AppCompatActivity {
     };
 
 queue.add(jsonObjRequest);
+        Toast.makeText(this, "Registered successfully", Toast.LENGTH_SHORT).show();
+
+        Intent i=new Intent(MainActivity.this,DonorActivity.class);
+        startActivity(i);
     }//end of Send Data to server
 
 }

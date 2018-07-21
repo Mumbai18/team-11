@@ -1,20 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:weightSum="1"
     tools:context="com.example.pavan.annadhaan.DonorActivity">
 
     <TextView
         android:id="@+id/tvDonor"
         android:layout_width="match_parent"
-        android:textSize="25sp"
-        android:gravity="center"
-        android:layout_marginTop="25dp"
         android:layout_height="wrap_content"
-        android:text="DONATE: What is left is not over! " />
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:text="DONATE: What is left is not over! "
+        android:textSize="25sp" />
+
+
+
+
+
+    <ImageView
+        android:id="@+id/ivUpload"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_weight="0.32"
+        app:srcCompat="@android:drawable/ic_menu_camera" />
 
     <EditText
         android:id="@+id/et_time"
@@ -25,10 +40,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="50dp"
         android:hint="Time"
-        app:layout_constraintBottom_toTopOf="@+id/btn_ready"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_location"
-        app:layout_constraintVertical_bias="0.241" />
+     />
 
     <EditText
         android:id="@+id/et_location"
@@ -37,10 +49,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         android:hint="Location"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_package"
-        app:layout_constraintVertical_bias="0.114"
-        tools:layout_editor_absoluteX="8dp" />
+        />
 
     <EditText
         android:id="@+id/et_package"
@@ -49,10 +58,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         android:hint="Packaging Type"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_quantity"
-        app:layout_constraintVertical_bias="0.057"
-        tools:layout_editor_absoluteX="8dp" />
+       />
 
     <EditText
         android:id="@+id/et_quantity"
@@ -62,10 +68,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:hint="Quantity"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.073" />
+ />
 
 
     <Button
@@ -74,6 +77,6 @@
         android:layout_height="59dp"
         android:layout_gravity="center"
         android:text="Ready To Donate!"
-        tools:layout_editor_absoluteX="103dp"
-        tools:layout_editor_absoluteY="386dp" />
+ />
 </LinearLayout>
+</ScrollView>
