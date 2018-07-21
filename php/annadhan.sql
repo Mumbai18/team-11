@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 21, 2018 at 02:18 PM
+-- Generation Time: Jul 21, 2018 at 07:49 PM
 -- Server version: 10.1.22-MariaDB
 -- PHP Version: 7.1.4
 
@@ -33,10 +33,17 @@ CREATE TABLE `donor` (
   `d_firstname` varchar(60) NOT NULL,
   `d_secondname` varchar(50) NOT NULL,
   `d_email` varchar(20) NOT NULL,
-  `d_contact` int(20) NOT NULL,
+  `d_contact` bigint(20) NOT NULL,
   `d_address` varchar(60) NOT NULL,
   `d_password` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `donor`
+--
+
+INSERT INTO `donor` (`d_id`, `d_firstname`, `d_secondname`, `d_email`, `d_contact`, `d_address`, `d_password`) VALUES
+(1, 'rani', 'rr', 'rrrr', 555, 'borivali', 'uuuu');
 
 -- --------------------------------------------------------
 
@@ -78,10 +85,20 @@ CREATE TABLE `volunteer` (
   `v_firstname` varchar(60) NOT NULL,
   `v_secondname` varchar(30) NOT NULL,
   `v_email` varchar(30) NOT NULL,
-  `v_contact` int(20) NOT NULL,
+  `v_contact` bigint(20) NOT NULL,
   `v_address` varchar(60) NOT NULL,
   `v_password` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `volunteer`
+--
+
+INSERT INTO `volunteer` (`v_id`, `v_firstname`, `v_secondname`, `v_email`, `v_contact`, `v_address`, `v_password`) VALUES
+(2, 'tisha', 'ttt', 'ttttt', 456, 'andheri', '444'),
+(3, 'kira', 'rr', 'rtty', 876, 'borivali', '4567'),
+(4, 'yu', 'yy', 'rrrrr', 9820360292, 'andheri', '12345'),
+(11, 'sadia', 'siddiqui', 'sas170298@gmail.com', 982, 'Borivali', 'eeeee');
 
 --
 -- Indexes for dumped tables
@@ -122,7 +139,7 @@ ALTER TABLE `volunteer`
 -- AUTO_INCREMENT for table `donor`
 --
 ALTER TABLE `donor`
-  MODIFY `d_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `d_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `food`
 --
@@ -132,7 +149,7 @@ ALTER TABLE `food`
 -- AUTO_INCREMENT for table `volunteer`
 --
 ALTER TABLE `volunteer`
-  MODIFY `v_id` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
+  MODIFY `v_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

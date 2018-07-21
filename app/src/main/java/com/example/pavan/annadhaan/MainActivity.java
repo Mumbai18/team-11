@@ -122,8 +122,8 @@ public class MainActivity extends AppCompatActivity {
 
         RequestQueue queue = Volley.newRequestQueue(this);
 
-        String base_url="";
-        StringRequest jsonObjRequest = new StringRequest(Request.Method.GET,
+
+        StringRequest jsonObjRequest = new StringRequest(Request.Method.POST,
                 getResources().getString(R.string.base_url),
                 new Response.Listener<String>() {
                     @Override
@@ -134,6 +134,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onErrorResponse(VolleyError error) {
+
+                Toast.makeText(MainActivity.this, "ERROR", Toast.LENGTH_SHORT).show();
                 VolleyLog.d("volley", "Error: " + error.getMessage());
                 error.printStackTrace();
             }
@@ -147,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected Map<String, String> getParams()throws AuthFailureError {
             Map<String, String> params = new HashMap<String, String>();
+            params.put("d_id","2");
             params.put("d_firstname",FN);
             params.put("d_secondname",LN);
             params.put("d_email",Mail);
