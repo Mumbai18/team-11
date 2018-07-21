@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Annadhaan</string>
+    <string name="base_url">http://192.168.43.201:8088/Annadhaan/php/api.php?apicall=signup</string>
+
 </resources>
