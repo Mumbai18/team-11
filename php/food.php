@@ -17,6 +17,6 @@
  
  $st->close();
  $response['error'] = false; 
- $response['message'] = 'Successful';
+ $response['message'] = 'Successfully added';
 }
 ?>
