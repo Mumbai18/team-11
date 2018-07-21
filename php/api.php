@@ -194,6 +194,50 @@ $count=mysqli_num_rows($sql);
  // $response['error'] = false; 
  // $response['message'] = 'Successfully added';
  break; 
+
+ case 'needyPeople':
+ if(isTheseParametersAvailable(array('location', 'no_of_people'))){
+ //getting values 
+ $location = $_POST['location'];
+ $no_of_people = ($_POST['no_of_people']); 
+ 
+  //creating the query 
+ $stmt = $conn->prepare("INSERT INTO needy_people (location,number_of_needies) VALUES (? ,?)");
+ $stmt->bind_param("ss", $location, $no_of_people);
+  $stmt->execute();
+ 
+ $stmt->store_result();
+ 
+ //if the user exist with given credentials 
+  $response['error'] = false; 
+ $response['message'] = 'Uploaded Successfully'; 
+ // if($stmt->num_rows > 0){
+ 
+ // $stmt->bind_result($v_email);
+ // $stmt->fetch();
+ 
+ //  $user = array(
+ 
+ // 'email'=>$email,
+ // );
+ 
+ // $response['error'] = false; 
+ // $response['message'] = 'Login successfull'; 
+ // $response['user'] = $user; 
+ // }else{
+ // //if the user not found 
+ // $response['error'] = false; 
+ // $response['message'] = 'Invalid username or password';
+ // }
+ }else{
+ 	$response['error'] = true; 
+ $response['message'] = 'required parameters are not available'; 
+
+ }
+ 
+ //this part will handle the login 
+ 
+ break;
  
  default: 
  $response['error'] = true; 
