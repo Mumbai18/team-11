@@ -43,8 +43,9 @@
  
  //if user is new creating an insert query 
  $stmt = $conn->prepare("INSERT INTO donor (d_id,d_firstname,d_secondname, d_email, d_contact, d_address, d_password) VALUES (?, ?, ?, ?,?,?,?)");
+ $stm = $conn->prepare("INSERT INTO volunteer (v_id,v_firstname,v_secondname, v_email, v_contact, v_address, v_password) VALUES (?, ?, ?, ?,?,?,?)");
  $stmt->bind_param("sssssss", $d_id,$d_firstname,$d_secondname, $d_email, $d_contact, $d_address, $d_password);
- 
+ $stm->bind_param("sssssss", $d_id,$d_firstname,$d_secondname, $d_email, $d_contact, $d_address, $d_password);
  //if the user is successfully added to the database 
  if($stmt->execute()){
  
@@ -61,12 +62,13 @@
  // 'email'=>$email,
  // 'gender'=>$gender
  // );
- 
+ // $stm->close();
  $stmt->close();
  
  //adding the user data in response 
  $response['error'] = false; 
- $response['message'] = 'User registered successfully'; 
+ $response['message'] = 'User registered successfully';
+
  // $response['user'] = $user; 
  }
 	 // }
@@ -84,9 +86,45 @@
  // break; 
  
  case 'login':
+ if(isTheseParametersAvailable(array('email', 'password'))){
+ //getting values 
+ $email = $_POST['email'];
+ $password = md5($_POST['password']); 
+ 
+  //creating the query 
+ $stmt = $conn->prepare("SELECT  v_email FROM volunteer WHERE v_email = ? AND v_password = ?");
+ $stmt->bind_param("ss",$email, $password);
+ 
+ $stmt->execute();
+ 
+ $stmt->store_result();
+ 
+ //if the user exist with given credentials 
+ if($stmt->num_rows > 0){
+ 
+ $stmt->bind_result($email);
+ $stmt->fetch();
+ 
+  $user = array(
+ 
+ 'email'=>$email,
+ );
+ 
+ $response['error'] = false; 
+ $response['message'] = 'Login successfull'; 
+ $response['user'] = $user; 
+ }else{
+ //if the user not found 
+ $response['error'] = false; 
+ $response['message'] = 'Invalid username or password';
+ }
+ }
  
  //this part will handle the login 
  
+ break; 
+ case 'demo':
+ $response['message'] = 'Login successfull';
  break; 
  
  default: 
@@ -116,4 +154,4 @@
  //return true if every param is available 
  return true; 
  }
-
+?>
