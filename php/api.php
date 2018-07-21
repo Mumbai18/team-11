@@ -35,11 +35,11 @@
  // $stmt->store_result();
  
  // //if the user already exist in the database 
- // if($stmt->num_rows > 0){
- // $response['error'] = true;
- // $response['message'] = 'User already registered';
- // $stmt->close();
- // }else{
+  if($stmt->num_rows > 0){
+ $response['error'] = true;
+  $response['message'] = 'User already registered';
+  $stmt->close();
+  }else{
  
  //if user is new creating an insert query 
  $stmt = $conn->prepare("INSERT INTO donor (d_id,d_firstname,d_secondname, d_email, d_contact, d_address, d_password) VALUES (?, ?, ?, ?,?,?,?)");
@@ -101,8 +101,6 @@
  $response['message'] = 'Invalid API Call';
  }
  
- //displaying the response in json structure 
- echo json_encode($response);
  function isTheseParametersAvailable($params){
  
  //traversing through all the parameters 
@@ -116,4 +114,4 @@
  //return true if every param is available 
  return true; 
  }
-
+?>
