@@ -6,6 +6,7 @@ use Twilio\Rest\Client;
 // Your Account SID and Auth Token from twilio.com/console
 $sid = 'AC9da241f21b007d19e8f3954bbd6c2758';
 $token = '8aff357d005af6cc80a4a1b9618884d5';
+// $token = '8aff357d005af6cc80a4a1b9618884d5';
 $client = new Client($sid, $token);
 // Use the client to do fun stuff like send text messages!
 $client->messages->create(
