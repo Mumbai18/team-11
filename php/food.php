@@ -1,9 +1,11 @@
 <?php
  require_once 'DbConnect.php';
- 
+ //if it is an api call 
+ //that means a get parameter named api call is set in the URL 
+ //and with this parameter we are concluding that it is an api call 
+ if(isset($_GET['apicall'])){
  $response = array()
 
- 
  $quantity = $_POST['quantity'];
  $packaging = $_POST['packaging'];
  $location = $_POST['location'];
@@ -15,6 +17,6 @@
  
  $st->close();
  $response['error'] = false; 
- $response['message'] = 'food added successfully';
+ $response['message'] = 'Successful';
 }
 ?>

@@ -152,8 +152,6 @@
  //return true if every param is available 
  return true; 
  }
-<<<<<<< HEAD
+
 ?>
-=======
-?>
->>>>>>> 900e2f3d4f798f328664575792df99b7f62bd5c6
+
