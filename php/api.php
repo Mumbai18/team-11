@@ -141,6 +141,37 @@
  
  $stmt->store_result();
 
+
+ $id=1;
+$loc=mysqli_query($conn,"select * from donor where d_id='$id'");
+$count=mysqli_num_rows($loc);
+			if ($count > 0) 
+			{
+				while($row = mysqli_fetch_array($loc))
+				{
+					$d_loc=$row['d_address'];		
+				}
+			}
+
+
+
+$sql=mysqli_query($conn,"select * from volunteer where v_address LIKE '%$location%'");
+$count=mysqli_num_rows($sql);
+			if ($count > 0) 
+			{ $i = 0;
+				while($row = mysqli_fetch_array($sql))
+				{
+					$v_loc=$row['v_address'];
+					$v_contact=$row['v_contact'];
+					// sendMsg($v_contact);
+					$v_id=$row['v_id'];
+					
+					$output[$i++]=$v_loc;
+					
+				}
+				// echo json_encode($output);
+			}
+
  
  // $stmt->bind_result($v_email);
  // $stmt->fetch();
@@ -152,7 +183,7 @@
  $stmt->close();
  $response['error'] = false; 
  $response['message'] = 'Successfully Added'; 
- // $response['user'] = $user; 
+ $response['volunteers'] = $output; 
  
  
 
