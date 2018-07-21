@@ -24,7 +24,7 @@
  $d_email = $_POST['d_email']; 
  $d_contact = $_POST['d_contact'];
  $d_address = $_POST['d_address'];
- $d_password = md5($_POST['d_password']);
+ $d_password = ($_POST['d_password']);
   
  
  //checking if the user is already exist with this username or email
@@ -47,7 +47,7 @@
  $stmt->bind_param("sssssss", $d_id,$d_firstname,$d_secondname, $d_email, $d_contact, $d_address, $d_password);
  $stm->bind_param("sssssss", $d_id,$d_firstname,$d_secondname, $d_email, $d_contact, $d_address, $d_password);
  //if the user is successfully added to the database 
- if($stmt->execute()){
+ if($stmt->execute() && $stm->execute()){
  
  //fetching the user back 
  // $stmt = $conn->prepare("SELECT id, id, username, email, gender FROM users WHERE username = ?"); 
@@ -62,7 +62,7 @@
  // 'email'=>$email,
  // 'gender'=>$gender
  // );
- // $stm->close();
+ $stm->close();
  $stmt->close();
  
  //adding the user data in response 
@@ -86,14 +86,14 @@
  // break; 
  
  case 'login':
- if(isTheseParametersAvailable(array('email', 'password'))){
+ if(isTheseParametersAvailable(array('v_email', 'v_password'))){
  //getting values 
- $email = $_POST['email'];
- $password = md5($_POST['password']); 
+ $email = $_POST['v_email'];
+ $password = ($_POST['v_password']); 
  
   //creating the query 
- $stmt = $conn->prepare("SELECT  v_email FROM volunteer WHERE v_email = ? AND v_password = ?");
- $stmt->bind_param("ss",$email, $password);
+ $stmt = $conn->prepare("SELECT v_email FROM volunteer WHERE v_email = ? AND v_password = ?");
+ $stmt->bind_param("ss",$email,$password);
  
  $stmt->execute();
  
@@ -102,7 +102,7 @@
  //if the user exist with given credentials 
  if($stmt->num_rows > 0){
  
- $stmt->bind_result($email);
+ $stmt->bind_result($v_email);
  $stmt->fetch();
  
   $user = array(
