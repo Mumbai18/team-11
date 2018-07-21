@@ -3,6 +3,7 @@
  require_once 'DbConnect.php';
  
  //an array to display response
+ header("Content-Type:application/json");
  $response = array();
  
  //if it is an api call 
@@ -14,9 +15,10 @@
  
  case 'signup':
  //checking the parameters required are available or not 
- if(isTheseParametersAvailable(array('d_firstname','d_secondname','d_email','d_contact','d_address','d_password',''))){
+ if(isTheseParametersAvailable(array('d_id','d_firstname','d_secondname','d_email','d_contact','d_address','d_password'))){
  
- //getting the values 
+ //getting the values
+ $d_id = $_POST['d_id'];
  $d_firstname = $_POST['d_firstname'];
  $d_secondname = $_POST['d_secondname'];
  $d_email = $_POST['d_email']; 
@@ -27,21 +29,21 @@
  
  //checking if the user is already exist with this username or email
  //as the email and username should be unique for every user 
- $stmt = $conn->prepare("SELECT id FROM users WHERE d_email = ?");
- $stmt->bind_param("ss", $d_email);
- $stmt->execute();
- $stmt->store_result();
+ // $stmt = $conn->prepare("SELECT d_id FROM donor WHERE d_email = ?");
+ // $stmt->bind_param("ss", $d_email);
+ // $stmt->execute();
+ // $stmt->store_result();
  
- //if the user already exist in the database 
- if($stmt->num_rows > 0){
- $response['error'] = true;
- $response['message'] = 'User already registered';
- $stmt->close();
- }else{
+ // //if the user already exist in the database 
+ // if($stmt->num_rows > 0){
+ // $response['error'] = true;
+ // $response['message'] = 'User already registered';
+ // $stmt->close();
+ // }else{
  
  //if user is new creating an insert query 
- $stmt = $conn->prepare("INSERT INTO users (d_firstname,d_secondname, d_email, d_contact, d_address, d_password) VALUES (?, ?, ?, ?,?,?)");
- $stmt->bind_param("ssss", $d_firstname,$d_secondname, $d_email, $d_contact, $d_address, $d_password);
+ $stmt = $conn->prepare("INSERT INTO donor (d_id,d_firstname,d_secondname, d_email, d_contact, d_address, d_password) VALUES (?, ?, ?, ?,?,?,?)");
+ $stmt->bind_param("sssssss", $d_id,$d_firstname,$d_secondname, $d_email, $d_contact, $d_address, $d_password);
  
  //if the user is successfully added to the database 
  if($stmt->execute()){
@@ -67,7 +69,8 @@
  $response['message'] = 'User registered successfully'; 
  // $response['user'] = $user; 
  }
- }
+	 // }
+ 
  
  }else{
  $response['error'] = true; 
@@ -78,7 +81,7 @@
  
  //in this part we will handle the registration
  
- break; 
+ // break; 
  
  case 'login':
  
