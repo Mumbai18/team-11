@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.chandrashekhar.myapplication.MainActivity">
+
+
+    <EditText
+        android:id="@+id/etUname"
+        android:layout_width="292dp"
+        android:layout_height="70dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Username"
+        tools:layout_editor_absoluteX="248dp"
+        tools:layout_editor_absoluteY="161dp" />
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="299dp"
+        android:layout_height="71dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Password"
+        tools:layout_editor_absoluteY="283dp"
+        tools:layout_editor_absoluteX="248dp" />
+
+    <TextView
+        android:id="@+id/tvLogin"
+        android:layout_width="103dp"
+        android:layout_height="46dp"
+        android:text="Login"
+        android:gravity="center"
+        android:textSize="40"
+        android:textColor="#000080"
+        tools:layout_editor_absoluteY="50dp"
+        tools:layout_editor_absoluteX="333dp" />
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="143dp"
+        android:layout_height="56dp"
+        android:text="Submit"
+        android:textSize="30"
+        android:textColor="#000080"
+        tools:layout_editor_absoluteY="446dp"
+        tools:layout_editor_absoluteX="313dp" />
+    <TextView
+        android:id="@+id/tvNewuser"
+        android:layout_width="229dp"
+        android:layout_height="43dp"
+        android:text="New User?"
+        android:gravity="center"
+        android:textSize="40"
+        android:textColor="#ff00"
+        tools:layout_editor_absoluteY="571dp"
+        tools:layout_editor_absoluteX="270dp" />
+
+
+</android.support.constraint.ConstraintLayout>
