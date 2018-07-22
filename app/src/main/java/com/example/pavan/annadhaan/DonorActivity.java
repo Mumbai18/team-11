@@ -28,7 +28,7 @@ import java.util.Map;
 
 public class DonorActivity extends AppCompatActivity {
 
-     EditText quantity,package1;
+    EditText quantity,package1;
     Button ready;
     EditText location,time;
     ImageView ivUpload;

@@ -56,4 +56,18 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="33dp"
         android:text="Share" />
+
+    <TextView
+        android:id="@+id/tvSkip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btnShare"
+        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="19dp"
+        android:layout_marginStart="19dp"
+        android:layout_toEndOf="@+id/btnLoc"
+        android:layout_toRightOf="@+id/btnLoc"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="20sp"
+        android:text="SKIP" />
 </RelativeLayout>

@@ -4,6 +4,6 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="donor_url">http://192.168.43.201:8088/Annadhaan/php/api.php?apicall=uploadFood</string>
     <string name="loc_url">http://192.168.43.201:8088/Annadhaan/php/api.php?apicall=needyPeople</string>
-
+    <string name="log_url">http://192.168.43.201:8088/Annadhaan/php/api.php?apicall=login</string>
 
 </resources>

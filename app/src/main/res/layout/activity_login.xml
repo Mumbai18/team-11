@@ -30,4 +30,36 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="Email Id" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:hint="Password"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/etMail"
+        android:layout_alignStart="@+id/etMail"
+        android:id="@+id/etPassword1" />
+
+    <Button
+        android:text="Submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="83dp"
+        android:id="@+id/btnSubmit" />
+
+    <TextView
+        android:text="New User?"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@android:color/holo_blue_dark"
+        android:layout_marginBottom="32dp"
+        android:id="@+id/tvNewUser"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/btnSubmit"
+        android:layout_alignStart="@+id/btnSubmit" />
 </RelativeLayout>
