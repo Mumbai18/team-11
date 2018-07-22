@@ -39,7 +39,7 @@ public class BActivity extends AppCompatActivity implements
         GoogleApiClient.OnConnectionFailedListener, GoogleApiClient.ConnectionCallbacks {
 
     Button btnLoc;
-    TextView tvLoc;
+    TextView tvLoc,tvSkip;
     GoogleApiClient gac;
     Button btnShare;
     EditText etNeed;
@@ -53,6 +53,7 @@ public class BActivity extends AppCompatActivity implements
         tvLoc = (TextView) findViewById(R.id.tvLoc);
         btnShare=(Button)findViewById(R.id.btnShare);
         etNeed=(EditText)findViewById(R.id.etNeed);
+        tvSkip=(TextView)findViewById(R.id.tvSkip);
 
         GoogleApiClient.Builder builder = new GoogleApiClient.Builder(this);
         builder.addApi(LocationServices.API);
@@ -77,9 +78,21 @@ public class BActivity extends AppCompatActivity implements
                 Log.v("hello",Loc);
 
                 SendDataToServer(Loc,ppl);
+                Intent i=new Intent(BActivity.this,DonorActivity.class);
+                startActivity(i);
 
             }
         });
+
+        tvSkip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(BActivity.this,DonorActivity.class);
+                startActivity(i);
+            }
+        });
+
+
     }//oncreate
 
     @Override
