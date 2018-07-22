@@ -41,33 +41,46 @@
         android:id="@+id/etNeed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="110dp"
         android:ems="10"
         android:hint="No of people"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/btnShare"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:text="Share"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="33dp"
-        android:text="Share" />
+        android:layout_alignTop="@id/etNeed"
+        android:layout_marginTop="60dp"/>
 
     <TextView
         android:id="@+id/tvSkip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/btnShare"
-        android:layout_marginBottom="12dp"
-        android:layout_marginLeft="19dp"
-        android:layout_marginStart="19dp"
-        android:layout_toEndOf="@+id/btnLoc"
-        android:layout_toRightOf="@+id/btnLoc"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="20sp"
-        android:text="SKIP" />
+        android:text="Do you want to DONATE?"
+        android:layout_marginTop="100dp"
+        android:layout_below="@+id/etNeed"
+        android:layout_alignRight="@+id/etNeed"
+        android:layout_alignEnd="@+id/etNeed" />
+
+    <Switch
+        android:text="Also want to volunteer?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:id="@+id/swVol"
+        android:checked="false"
+        android:layout_gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="27dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginBottom="33dp" />
+
 </RelativeLayout>

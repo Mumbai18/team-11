@@ -20,10 +20,6 @@
         android:text="DONATE: What is left is not over! "
         android:textSize="25sp" />
 
-
-
-
-
     <ImageView
         android:id="@+id/ivUpload"
         android:layout_width="match_parent"
@@ -37,9 +33,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginRight="12dp"
         android:layout_marginTop="50dp"
-        android:hint="Time"
+        android:hint="Title"
      />
 
     <EditText
@@ -69,7 +65,6 @@
         android:layout_marginTop="8dp"
         android:hint="Quantity"
  />
-
 
     <Button
         android:id="@+id/btn_ready"

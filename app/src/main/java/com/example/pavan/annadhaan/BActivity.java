@@ -1,12 +1,14 @@
 package com.example.pavan.annadhaan;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -94,6 +96,38 @@ public class BActivity extends AppCompatActivity implements
 
 
     }//oncreate
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setMessage("Do you want to exit?");
+
+        builder.setCancelable(false);
+
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();;
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+        builder.setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+            }
+        });
+
+        AlertDialog alert=builder.create();
+        alert.setTitle("EXIT");
+        alert.show();
+    }
 
     @Override
     protected void onStart() {

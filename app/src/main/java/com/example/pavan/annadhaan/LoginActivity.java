@@ -26,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     Button btnSubmit;
     TextView tvNewUser;
     EditText etMail,etPassword;
+    String mail,password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +38,18 @@ public class LoginActivity extends AppCompatActivity {
         etPassword = (EditText) findViewById(R.id.etPassword1);
         tvNewUser = (TextView) findViewById(R.id.tvNewUser);
 
-        String mail = etMail.getText().toString();
-        String password = etPassword.getText().toString();
+        mail = etMail.getText().toString();
+        password = etPassword.getText().toString();
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SendDataToServer(mail, password);
+                Intent i = new Intent(LoginActivity.this, BActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
-        SendDataToServer(mail, password);
 
         tvNewUser.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,8 +76,6 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-
-                Toast.makeText(LoginActivity.this, "ERROR", Toast.LENGTH_SHORT).show();
                 VolleyLog.d("volley", "Error: " + error.getMessage());
                 error.printStackTrace();
             }
@@ -84,16 +91,12 @@ public class LoginActivity extends AppCompatActivity {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("v_email",mail);
                 params.put("v_password",pswd);
-
-
                 return params;
             }
 
         };
 
         queue.add(jsonObjRequest);
-        Toast.makeText(this, "Shared successfully", Toast.LENGTH_SHORT).show();
-
-
+        Toast.makeText(this, "Login successfully", Toast.LENGTH_SHORT).show();
     }//end of Send Data to server
 }

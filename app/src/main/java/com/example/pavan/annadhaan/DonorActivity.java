@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -114,9 +116,6 @@ public class DonorActivity extends AppCompatActivity {
 
         @Override
         public void onErrorResponse(VolleyError error) {
-
-            Toast.makeText(DonorActivity.this, "ERROR", Toast.LENGTH_SHORT).show();
-            VolleyLog.d("volley", "Error: " + error.getMessage());
             error.printStackTrace();
         }
     }) {
@@ -142,9 +141,9 @@ public class DonorActivity extends AppCompatActivity {
     };
 
     queue.add(jsonObjRequest);
-    Toast.makeText(this, "Data Sent successfully", Toast.LENGTH_SHORT).show();
-
+    Toast.makeText(this, "Thank you for Donation!", Toast.LENGTH_SHORT).show();
 
 }//end of Send Data to server
+
 
 }
