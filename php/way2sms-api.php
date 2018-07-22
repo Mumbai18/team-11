@@ -69,7 +69,7 @@ class WAY2SMSClient
         $tokenLocation = strpos($this->refurl, "Token");
         $this->jstoken = substr($this->refurl, $tokenLocation + 6, 37);
         //Go to the homepage
-        //$text = curl_exec($this->curl);
+        $text = curl_exec($this->curl);
 
         return true;
     }
