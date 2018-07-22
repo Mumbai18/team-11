@@ -9,6 +9,7 @@ import android.location.Location;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -73,6 +74,7 @@ public class BActivity extends AppCompatActivity implements
 
                 String Loc=tvLoc.getText().toString();
                 String ppl=etNeed.getText().toString();
+                Log.v("hello",Loc);
 
                 SendDataToServer(Loc,ppl);
 
@@ -143,53 +145,7 @@ public class BActivity extends AppCompatActivity implements
 
 
     public void SendDataToServer(final String loc, final String ppl){
-        /*class SendPostReqAsyncTask extends AsyncTask<String, Void, String> {
-            @Override
-            protected String doInBackground(String ... params) throws   {
 
-                String urlParameters  = "d_firstname="+FN+"&d_secondname="+LN+"&d_email="+Mail+"&d_contact="+Phone+"&d_address="+Address+"d_password"+Password;
-                byte[] postData = new byte[0];
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
-                    postData = urlParameters.getBytes(StandardCharsets.UTF_8);
-                }
-                int postDataLength = postData.length;
-                String request = "<Url here>";
-
-                URL url = null;
-                try {
-                    url = new URL(request);
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                }
-                HttpURLConnection conn= null;
-                try {
-                    conn = (HttpURLConnection) url.openConnection();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                conn.setDoOutput(true);
-                conn.setInstanceFollowRedirects(false);
-                try {
-                    conn.setRequestMethod("POST");
-                } catch (ProtocolException e) {
-                    e.printStackTrace();
-                }
-                conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-                conn.setRequestProperty("charset", "utf-8");
-                conn.setRequestProperty("Content-Length", Integer.toString(postDataLength ));
-                conn.setUseCaches(false);
-                try {
-
-                    DataOutputStream wr = null;
-                    try {
-                        wr = new DataOutputStream(conn.getOutputStream());
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    wr.write( postData );
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }*/
 
         RequestQueue queue = Volley.newRequestQueue(this);
 
@@ -230,7 +186,7 @@ public class BActivity extends AppCompatActivity implements
         };
 
         queue.add(jsonObjRequest);
-        Toast.makeText(this, "Registered successfully", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Shared successfully", Toast.LENGTH_SHORT).show();
 
 
     }//end of Send Data to server
