@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
 queue.add(jsonObjRequest);
         Toast.makeText(this, "Registered successfully", Toast.LENGTH_SHORT).show();
 
-        Intent i=new Intent(MainActivity.this,DonorActivity.class);
+        Intent i=new Intent(MainActivity.this,BActivity.class);
         startActivity(i);
     }//end of Send Data to server
 
