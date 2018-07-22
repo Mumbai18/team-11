@@ -5,7 +5,7 @@
 //and lastly we have the database named android. if your database name is different you have to change it 
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "root";
 $database = "annadhan";
  
  
