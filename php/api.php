@@ -192,7 +192,7 @@ $client->messages->create(
         // A Twilio phone number you purchased at twilio.com/console
         'from' => '+14797772236',
         // the body of the text message you'd like to send
-        'body' => 'Hey John! Good luck on the Twilio session!'
+        'body' => 'Hey, are you available at '.$location.'? Please send us your confirmation asap.'
     )
 );
 echo "Your message has been sent successfully";
