@@ -100,7 +100,7 @@ class CreateCredentialOptions extends Options {
     }
 
     /**
-     * [APN only] URL encoded representation of the private key. Strip everything outside of the headers, e.g. `
+     * [APN only] URL encoded representation of the private key. Strip everything outside of the headers, e.g. `-----BEGIN RSA PRIVATE KEY-----MIIEpQIBAAKCAQEAuyf/lNrH9ck8DmNyo3fGgvCI1l9s+cmBY3WIz+cUDqmxiieR\n.-----END RSA PRIVATE KEY-----`
      * 
      * @param string $privateKey [APN only] URL encoded representation of the
      *                           private key.
@@ -210,7 +210,7 @@ class UpdateCredentialOptions extends Options {
     }
 
     /**
-     * [APN only] URL encoded representation of the private key. Strip everything outside of the headers, e.g. `
+     * [APN only] URL encoded representation of the private key. Strip everything outside of the headers, e.g. `-----BEGIN RSA PRIVATE KEY-----MIIEpQIBAAKCAQEAuyf/lNrH9ck8DmNyo3fGgvCI1l9s+cmBY3WIz+cUDqmxiieR\n.-----END RSA PRIVATE KEY-----`
      * 
      * @param string $privateKey [APN only] URL encoded representation of the
      *                           private key.
